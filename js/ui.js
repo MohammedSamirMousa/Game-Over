@@ -40,7 +40,7 @@ export class Ui {
 
   displayGamesDetail(data) {
     const boxDetail = `
-  <div class="col-4">
+  <div class="col-lg-4 col-md-3">
                     <figcaption>
                         <h3 class="text-white">Details Game</h3>
                     </figcaption>
