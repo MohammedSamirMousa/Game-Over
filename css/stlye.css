@@ -1,0 +1,97 @@
+body {
+  background-color: #272b30;
+  font-family: "Nerko One", cursive;
+}
+
+#login ::placeholder {
+  color: #ffffff38;
+}
+
+#login input {
+  color: #fff;
+}
+
+#login a {
+  color: #ffffffc5;
+  text-decoration: none;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+#login a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#login input:hover,
+#login input:focus {
+  border: 1px solid #0099cc;
+}
+
+
+
+.game-hero {
+  background-image: url(../img/wraper.png);
+  width: 100%;
+  height: 30vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bg {
+  background-color: rgb(58, 73, 123);
+}
+
+.bg-3 {
+  background-color: rgba(58, 73, 123, 0.308);
+}
+
+.bg-2 {
+  background-color: #272b30 !important;
+}
+
+#navbarNav a:hover,
+#navbarNav .active {
+  color: #0099cc;
+}
+
+#container .card {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  cursor: pointer;
+  filter: grayscale(0.5);
+  -webkit-filter: grayscale(0.5);
+}
+
+#container .card:hover {
+  scale: 1.05;
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+}
+
+#Loading .spinner-border {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #ff3d00;
+  border-bottom: 4px solid transparent;
+}
+
+.load-sec {
+  transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -o-transition: all 0.8s;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}
