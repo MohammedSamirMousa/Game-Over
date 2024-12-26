@@ -44,6 +44,7 @@ export class Valid {
       this.clear()
       this.login.classList.add("d-none")
       this.site.classList.remove("d-none")
+      this.alert1.classList.replace("d-block" , "d-none")
     }else{
       this.alert1.classList.replace("d-none" , "d-block")
     }
