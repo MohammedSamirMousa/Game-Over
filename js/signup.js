@@ -98,7 +98,7 @@ export class Signup {
     for (let i = 0; i < this.dataSignup.length; ++i) {
       if (
         this.dataSignup[i].email.toLowerCase() ===
-          this.emailSignup.value.toLowerCase() &&
+          this.emailSignup.value.toLowerCase() ||
         this.dataSignup[i].pass.toLowerCase() ===
           this.passSignup.value.toLowerCase()
       ) {

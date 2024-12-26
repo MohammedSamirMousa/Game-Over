@@ -41,12 +41,12 @@ export class Valid {
   }
   getData() {
     if (this.isExist()) {
-      this.clear()
-      this.login.classList.add("d-none")
-      this.site.classList.remove("d-none")
-      this.alert1.classList.replace("d-block" , "d-none")
-    }else{
-      this.alert1.classList.replace("d-none" , "d-block")
+      this.clear();
+      this.login.classList.add("d-none");
+      this.site.classList.remove("d-none");
+      this.alert1.classList.replace("d-block", "d-none");
+    } else {
+      this.alert1.classList.replace("d-none", "d-block");
     }
   }
   clear() {
@@ -71,7 +71,7 @@ export class Valid {
   isExist() {
     return this.dataArray.some(
       (user) =>
-        user.email.toLowerCase() === this.userEmail.value.toLowerCase() &&
+        user.email.toLowerCase() === this.userEmail.value.toLowerCase() ||
         user.pass === this.userPass.value
     );
   }
