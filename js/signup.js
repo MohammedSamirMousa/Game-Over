@@ -59,18 +59,19 @@ export class Signup {
   }
 
   getData() {
-    if (!this.isExist()) {
-      let userSignup = {
-        nameSignup: this.userName.value,
-        email: this.emailSignup.value,
-        pass: this.passSignup.value,
-      };
-      this.dataSignup.push(userSignup);
-      this.clear();
-      localStorage.setItem("user", JSON.stringify(this.dataSignup));
-    } else {
-        this.alert2.classList.replace("d-none" , "d-block")
-    }
+      if (!this.isExist()) {
+        let userSignup = {
+          nameSignup: this.userName.value,
+          email: this.emailSignup.value,
+          pass: this.passSignup.value,
+        };
+        this.dataSignup.push(userSignup);
+        this.clear();
+        localStorage.setItem("user", JSON.stringify(this.dataSignup));
+        window.location.reload()
+      } else {
+        this.alert2.classList.replace("d-none", "d-block");
+      }
   }
 
   clear() {
