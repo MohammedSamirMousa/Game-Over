@@ -1,5 +1,5 @@
 import { Games } from "./games.js";
-import { Valid } from "./validationlogin.js";
+import { Valid } from "./login.js";
 import { Signup } from "./signup.js";
 import { Logout } from "./logout.js";
 
