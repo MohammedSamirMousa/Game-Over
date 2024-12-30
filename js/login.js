@@ -1,6 +1,6 @@
 export class Valid {
   constructor() {
-    this.dataArray = JSON.parse(localStorage.getItem("user"));
+    this.dataArray = JSON.parse(localStorage.getItem("user")) || [];
     this.login = document.querySelector(".login");
     this.signUp = document.querySelector(".sign-up");
     this.userEmail = document.getElementById("userEmail");
@@ -57,7 +57,7 @@ export class Valid {
     }
   }
   valid(input, condition) {
-    if ((input, condition)) {
+    if (condition) {
       input.classList.add("is-valid");
       input.classList.remove("is-invalid");
       return true;
@@ -68,16 +68,10 @@ export class Valid {
     }
   }
   isExist() {
-    for (let i = 0; i < this.dataArray.length; i++) {
-      if (
-        this.dataArray[i].email.toLowerCase() ===
-          this.userEmail.value.toLowerCase() ||
-        this.dataArray[i].pass.toLowerCase() ===
-          this.userPass.value.toLowerCase()
-      ) {
-        return true;
-      }
-    }
-    return false;
+    return this.dataArray.some(
+      (user) =>
+        user.email.toLowerCase() === this.userEmail.value.toLowerCase() &&
+        user.pass.toLowerCase() === this.userPass.value.toLowerCase()
+    );
   }
 }

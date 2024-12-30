@@ -103,16 +103,12 @@ export class Signup {
     }
   }
   isExist() {
-    for (let i = 0; i < this.dataSignup.length; ++i) {
-      if (
-        this.dataSignup[i].email.toLowerCase() ===
+    return this.dataSignup.some(
+      (user) =>
+       user.email.toLowerCase() ===
           this.emailSignup.value.toLowerCase() ||
-        this.dataSignup[i].pass.toLowerCase() ===
+       user.pass.toLowerCase() ===
           this.passSignup.value.toLowerCase()
-      ) {
-        return true;
-      }
-    }
-    return false;
+    );
   }
 }
