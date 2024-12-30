@@ -5,6 +5,7 @@ export class Signup {
     this.userName = document.getElementById("userName");
     this.emailSignup = document.getElementById("emailSignup");
     this.passSignup = document.getElementById("passSignup");
+    this.rePassSignup = document.getElementById("rePassSignup");
     this.formSignup = document.getElementById("formSignup");
     this.signupBtn = document.getElementById("signupBtn");
     this.alert2 = document.getElementById("alert2");
@@ -35,7 +36,11 @@ export class Signup {
         this.passSignup,
         this.passRegex.test(this.passSignup.value)
       );
-      if (isValidName && isValidEmail && isValidPass) {
+      let isValidRePass = this.valid(
+        this.rePassSignup,
+        this.passSignup.value === this.rePassSignup.value
+      );
+      if (isValidName && isValidEmail && isValidPass && isValidRePass) {
         this.getData();
       }
     });
@@ -52,6 +57,12 @@ export class Signup {
     this.passSignup.addEventListener("input", () => {
       this.valid(this.passSignup, this.passRegex.test(this.passSignup.value));
     });
+    this.rePassSignup.addEventListener("input", () => {
+      this.valid(
+        this.rePassSignup,
+        this.passSignup.value === this.rePassSignup.value
+      );
+    });
     this.loginLink.addEventListener("click", () => {
       this.login.classList.remove("d-none");
       this.signUp.classList.add("d-none");
@@ -59,18 +70,20 @@ export class Signup {
   }
 
   getData() {
-    if (!this.isExist()) {
+    if (this.isExist()) {
+      this.alert2.classList.replace("d-none", "d-block");
+    } else {
       let userSignup = {
         nameSignup: this.userName.value,
         email: this.emailSignup.value,
         pass: this.passSignup.value,
+        rePass: this.rePassSignup.value,
       };
       this.dataSignup.push(userSignup);
       this.clear();
+      this.alert2.classList.replace("d-block", "d-none");
       localStorage.setItem("user", JSON.stringify(this.dataSignup));
       window.location.reload();
-    } else {
-      this.alert2.classList.replace("d-none", "d-block");
     }
   }
 
@@ -78,12 +91,13 @@ export class Signup {
     this.userName.value = "";
     this.emailSignup.value = "";
     this.passSignup.value = "";
+    this.rePassSignup.value = "";
     for (let i = 0; i < this.allInputs.length; ++i) {
       this.allInputs[i].classList.remove("is-valid");
     }
   }
   valid(input, condition) {
-    if ((input, condition)) {
+    if (condition) {
       input.classList.add("is-valid");
       input.classList.remove("is-invalid");
       return true;
@@ -97,12 +111,12 @@ export class Signup {
   isExist() {
     for (let i = 0; i < this.dataSignup.length; ++i) {
       if (
-        this.dataSignup[i].email.toLowerCase() ===
-          this.emailSignup.value.toLowerCase() &&
-        this.dataSignup[i].pass.toLowerCase() ===
-          this.passSignup.value.toLowerCase()
+        this.dataSignup[i].email.toLowerCase() === this.emailSignup.value.toLowerCase() &&
+        this.dataSignup[i].rePass.toLowerCase() === this.passSignup.value.toLowerCase()
       ) {
         return true;
+      } else {
+        return false;
       }
     }
   }
