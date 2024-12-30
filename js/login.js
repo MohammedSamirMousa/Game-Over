@@ -71,12 +71,13 @@ export class Valid {
     for (let i = 0; i < this.dataArray.length; i++) {
       if (
         this.dataArray[i].email.toLowerCase() ===
-          this.userEmail.value.toLowerCase() &&
+          this.userEmail.value.toLowerCase() ||
         this.dataArray[i].pass.toLowerCase() ===
           this.userPass.value.toLowerCase()
       ) {
         return true;
       }
     }
+    return false;
   }
 }

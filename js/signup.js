@@ -15,13 +15,11 @@ export class Signup {
     this.emailRegex =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
     this.dataSignup = [];
     if (localStorage.getItem("user")) {
       this.dataSignup = JSON.parse(localStorage.getItem("user"));
       console.log(this.dataSignup);
     }
-
     this.formSignup.addEventListener("submit", (e) => {
       e.preventDefault();
       let isValidName = this.valid(
@@ -44,7 +42,6 @@ export class Signup {
         this.getData();
       }
     });
-
     this.userName.addEventListener("input", () => {
       this.valid(this.userName, this.nameRegex.test(this.userName.value));
     });
@@ -68,7 +65,6 @@ export class Signup {
       this.signUp.classList.add("d-none");
     });
   }
-
   getData() {
     if (this.isExist()) {
       this.alert2.classList.replace("d-none", "d-block");
@@ -86,7 +82,6 @@ export class Signup {
       window.location.reload();
     }
   }
-
   clear() {
     this.userName.value = "";
     this.emailSignup.value = "";
@@ -107,17 +102,17 @@ export class Signup {
       return false;
     }
   }
-
   isExist() {
     for (let i = 0; i < this.dataSignup.length; ++i) {
       if (
-        this.dataSignup[i].email.toLowerCase() === this.emailSignup.value.toLowerCase() &&
-        this.dataSignup[i].rePass.toLowerCase() === this.passSignup.value.toLowerCase()
+        this.dataSignup[i].email.toLowerCase() ===
+          this.emailSignup.value.toLowerCase() ||
+        this.dataSignup[i].pass.toLowerCase() ===
+          this.passSignup.value.toLowerCase()
       ) {
         return true;
-      } else {
-        return false;
       }
     }
+    return false;
   }
 }
