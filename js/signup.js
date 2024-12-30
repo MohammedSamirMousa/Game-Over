@@ -10,7 +10,7 @@ export class Signup {
     this.alert2 = document.getElementById("alert2");
     this.loginLink = document.getElementById("loginLink");
     this.allInputs = document.querySelectorAll(".sign-up input");
-    this.nameRegex = /^[a-zA0-Z9]{3,}$/;
+    this.nameRegex = /^[a-zA0-Z9 ]{3,}$/;
     this.emailRegex =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -59,19 +59,19 @@ export class Signup {
   }
 
   getData() {
-      if (!this.isExist()) {
-        let userSignup = {
-          nameSignup: this.userName.value,
-          email: this.emailSignup.value,
-          pass: this.passSignup.value,
-        };
-        this.dataSignup.push(userSignup);
-        this.clear();
-        localStorage.setItem("user", JSON.stringify(this.dataSignup));
-        window.location.reload()
-      } else {
-        this.alert2.classList.replace("d-none", "d-block");
-      }
+    if (!this.isExist()) {
+      let userSignup = {
+        nameSignup: this.userName.value,
+        email: this.emailSignup.value,
+        pass: this.passSignup.value,
+      };
+      this.dataSignup.push(userSignup);
+      this.clear();
+      localStorage.setItem("user", JSON.stringify(this.dataSignup));
+      window.location.reload();
+    } else {
+      this.alert2.classList.replace("d-none", "d-block");
+    }
   }
 
   clear() {
@@ -98,7 +98,7 @@ export class Signup {
     for (let i = 0; i < this.dataSignup.length; ++i) {
       if (
         this.dataSignup[i].email.toLowerCase() ===
-          this.emailSignup.value.toLowerCase() ||
+          this.emailSignup.value.toLowerCase() &&
         this.dataSignup[i].pass.toLowerCase() ===
           this.passSignup.value.toLowerCase()
       ) {

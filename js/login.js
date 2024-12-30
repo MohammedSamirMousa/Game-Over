@@ -67,12 +67,16 @@ export class Valid {
       return false;
     }
   }
-
   isExist() {
-    return this.dataArray.some(
-      (user) =>
-        user.email.toLowerCase() === this.userEmail.value.toLowerCase() ||
-        user.pass === this.userPass.value
-    );
+    for (let i = 0; i < this.dataArray.length; i++) {
+      if (
+        this.dataArray[i].email.toLowerCase() ===
+          this.userEmail.value.toLowerCase() &&
+        this.dataArray[i].pass.toLowerCase() ===
+          this.userPass.value.toLowerCase()
+      ) {
+        return true;
+      }
+    }
   }
 }
