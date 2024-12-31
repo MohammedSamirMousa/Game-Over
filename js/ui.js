@@ -1,80 +1,68 @@
 export class Ui {
-  // Method to display a list of games
   displayGames(data) {
-    let cartona = ""; // Initialize an empty string to hold the HTML content
-
-    // Loop through the games data and create the HTML for each game
+    let cartona = "";
     for (let i = 0; i < data.length; ++i) {
       cartona += `
-      <div class="data col-lg-3 col-md-4" data-id="${
-        data[i].id
-      }"> <!-- Each game's container with its ID -->
-        <div class="card bg-2 h-100 filter" id="Card"> <!-- Card layout for each game -->
-          <div class="card-body">
-            <figure>
-              <!-- Display the game thumbnail -->
-              <img src="${data[i].thumbnail}" class="w-100" alt="">
-            </figure>
-            <figcaption>
-              <div class="detail text-white d-flex justify-content-between align-items-center">
-                <!-- Game title and status -->
-                <h5>${data[i].title}</h5>
-                <span class="bg p-2 rounded-3">free</span> <!-- Mark the game as free -->
-              </div>
-              <!-- Short description of the game, split into words and show up to 8 words -->
-              <p class="text-white-50 text-center mt-3">${data[
-                i
-              ].short_description.split(" ", 8)}</p>
-            </figcaption>
-          </div>
-          <!-- Game's genre and platform -->
-          <div class="card-footer text-white d-flex justify-content-between align-items-center">
-            <span class="bg m-0 p-1 rounded-3">${
-              data[i].genre
-            }</span> <!-- Game genre -->
-            <span class="bg m-0 p-1 rounded-3 w-50 text-center">${
-              data[i].platform
-            }</span> <!-- Game platform -->
-          </div>
-        </div>
-      </div>
-      `;
-    }
 
-    // Insert the generated HTML content into the 'SS' element
+      <div class="data col-lg-3 col-md-4" data-id="${data[i].id}">
+                    <div class="card bg-2 h-100 filter" id="Card">
+                    <div class="card-body">
+                                    <figure>
+                                        <img src="${
+                                          data[i].thumbnail
+                                        }" class="w-100" alt="">
+                                    </figure>
+                                    <figcaption>
+                                        <div class="detail text-white d-flex justify-content-between align-items-center">
+                                            <h5>${data[i].title}</h5>
+                                            <span class="bg p-2 rounded-3">free</span>
+                                        </div>
+                                        <p class="text-white-50 text-center mt-3">${data[
+                                          i
+                                        ].short_description.split(" ", 8)}</p>
+                                    </figcaption>
+                                </div>
+                                <div class="card-footer text-white d-flex justify-content-between align-items-center">
+                                    <span class="bg m-0 p-1 rounded-3">${
+                                      data[i].genre
+                                    }</span>
+                                    <span class="bg m-0 p-1 rounded-3 w-50 text-center">${
+                                      data[i].platform
+                                    }</span>
+                                </div>
+                        
+                    </div>
+                </div>
+            `;
+    }
     document.getElementById("SS").innerHTML = cartona;
   }
 
-  // Method to display detailed information of a single game
   displayGamesDetail(data) {
     const boxDetail = `
-    <div class="col-lg-4 col-md-3">
-      <figcaption>
-        <h3 class="text-white">Details Game</h3>
-      </figcaption>
-      <figure>
-        <!-- Display the detailed game thumbnail -->
-        <img src="${data.thumbnail}" class="w-100" alt="">
-      </figure>
-    </div>
-    <div class="col-8 text-white">
-      <!-- Display detailed game information -->
-      <p>Title: <span class="bg-info rounded-3 p-1 text-black">${data.title}</span></p>
-      <p>Category: <span class="bg-info rounded-3 p-1 text-black">${data.genre}</span></p>
-      <p>Platform: <span class="bg-info rounded-3 p-1 text-black">${data.platform}</span></p>
-      <p>Status: <span class="bg-info rounded-3 p-1 text-black">${data.status}</span></p>
-      <span>
-        <!-- Full description of the game -->
-        ${data.description}
-      </span>
-      <div class="py-3">
-        <!-- Link to show the game -->
-        <a class="btn btn-outline-warning text-white" target="_blank" href="${data.game_url}">Show Game</a>
-      </div>
-    </div>
-    `;
+  <div class="col-lg-4 col-md-3">
+                    <figcaption>
+                        <h3 class="text-white">Details Game</h3>
+                    </figcaption>
+                    <figure>
+                        <img src="${data.thumbnail}" class="w-100" alt="">
+                    </figure>
+                </div>
+                <div class="col-8 text-white">
+                    <p>Title: <span class="bg-info rounded-3 p-1 text-black">${data.title}</span></p>
+                    <p>Category: <span class="bg-info rounded-3 p-1 text-black">${data.genre}</span></p>
+                    <p>Platform: <span class="bg-info rounded-3 p-1 text-black">${data.platform}</span></p>
+                    <p>Status: <span class="bg-info rounded-3 p-1 text-black">${data.status}</span></p>
+                    <span>
+                    ${data.description}
+                    </span>
+                    <div class="py-3">
+                        <a class="btn btn-outline-warning text-white" target="_blank" href="${data.game_url}">Show Game</a>
+                    </div>
+                </div>
+        
+              `;
 
-    // Insert the generated HTML content into the 'content' element
     document.getElementById("content").innerHTML = boxDetail;
   }
 }
