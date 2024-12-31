@@ -1,97 +1,111 @@
+/* Set background color and font for the body */
 body {
-  background-color: #272b30;
-  font-family: "Nerko One", cursive;
+  background-color: #272b30; /* Dark background color */
+  font-family: "Nerko One", cursive; /* Custom cursive font */
 }
 
+/* Placeholder text style inside the #login input fields */
 #login ::placeholder {
-  color: #ffffff38;
+  color: #ffffff38; /* Light grey color with some transparency */
 }
 
+/* Set text color inside the input fields in the #login section */
 #login input {
-  color: #fff;
+  color: #fff; /* White text */
 }
 
+/* Style for links inside the #login section */
 #login a {
-  color: #ffffffc5;
-  text-decoration: none;
-  transition: all 0.3s;
+  color: #ffffffc5; /* Light grey link color */
+  text-decoration: none; /* Remove underline */
+  transition: all 0.3s; /* Smooth transition for hover effects */
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
 }
 
+/* Hover effect for links in the #login section */
 #login a:hover {
-  color: #fff;
-  text-decoration: underline;
+  color: #fff; /* White color on hover */
+  text-decoration: underline; /* Underline on hover */
 }
 
+/* Input fields in the #login section on hover or focus */
 #login input:hover,
 #login input:focus {
-  border: 1px solid #0099cc;
+  border: 1px solid #0099cc; /* Blue border when focused or hovered */
 }
 
-
-
+/* Hero section with background image */
 .game-hero {
-  background-image: url(../img/wraper.png);
-  width: 100%;
-  height: 30vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-image: url(../img/wraper.png); /* Background image for the hero section */
+  width: 100%; /* Full width */
+  height: 30vh; /* 30% of the viewport height */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-position: center; /* Center the image */
+  background-size: cover; /* Cover the entire area with the image */
 }
 
+/* Background color for sections with class .bg */
 .bg {
-  background-color: rgb(58, 73, 123);
+  background-color: rgb(58, 73, 123); /* A shade of blue */
 }
 
+/* Transparent background with some opacity for sections with class .bg-3 */
 .bg-3 {
-  background-color: rgba(58, 73, 123, 0.308);
+  background-color: rgba(58, 73, 123, 0.308); /* Semi-transparent blue */
 }
 
+/* Background color for sections with class .bg-2 */
 .bg-2 {
-  background-color: #272b30 !important;
+  background-color: #272b30 !important; /* Dark background color */
 }
 
+/* Navbar link hover and active states */
 #navbarNav a:hover,
 #navbarNav .active {
-  color: #0099cc;
+  color: #0099cc; /* Blue color on hover and active links */
 }
 
+/* Card transition effect inside the container */
 #container .card {
-  transition: all 0.5s;
+  transition: all 0.5s; /* Smooth transition for the card */
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
-  cursor: pointer;
-  filter: grayscale(0.5);
-  -webkit-filter: grayscale(0.5);
+  cursor: pointer; /* Pointer cursor when hovering over the card */
+  filter: grayscale(0.5); /* Apply grayscale filter */
+  -webkit-filter: grayscale(0.5); /* Apply grayscale filter */
 }
 
+/* Hover effect for cards in the container */
 #container .card:hover {
-  scale: 1.05;
-  filter: grayscale(0);
-  -webkit-filter: grayscale(0);
+  scale: 1.05; /* Slightly scale up the card */
+  filter: grayscale(0); /* Remove grayscale filter */
+  -webkit-filter: grayscale(0); /* Remove grayscale filter */
 }
 
+/* Spinner style for the loading indicator */
 #Loading .spinner-border {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 4px solid #ff3d00;
-  border-bottom: 4px solid transparent;
+  width: 100px; /* Set width of the spinner */
+  height: 100px; /* Set height of the spinner */
+  border-radius: 50%; /* Make the spinner circular */
+  border: 4px solid #ff3d00; /* Red border color */
+  border-bottom: 4px solid transparent; /* Transparent bottom border to create the spinning effect */
 }
 
+/* Load section transition effect */
 .load-sec {
-  transition: all 0.8s;
+  transition: all 0.8s; /* Smooth transition for the load section */
   -webkit-transition: all 0.8s;
   -moz-transition: all 0.8s;
   -ms-transition: all 0.8s;
   -o-transition: all 0.8s;
 }
 
+/* Fade-out effect (opacity set to 0) */
 .fade-out {
-  opacity: 0 !important;
+  opacity: 0 !important; /* Set opacity to 0 for fade-out effect */
 }
