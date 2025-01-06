@@ -56,10 +56,16 @@ export class Games {
     this.detail = document.getElementById("detail");
     this.Card.addEventListener("click", () => {
       this.detail.classList.remove("d-none");
+      document.getElementById("container").classList.add("d-none");
+      document.getElementById("nav").classList.add("d-none");
+      document.querySelector(".game-hero").classList.add("d-none");
     });
     this.btnClose = document.getElementById("btnClose");
     this.btnClose.addEventListener("click", () => {
       this.detail.classList.add("d-none");
+      document.getElementById("container").classList.remove("d-none");
+      document.getElementById("nav").classList.remove("d-none");
+      document.querySelector(".game-hero").classList.remove("d-none");
     });
   }
 }
